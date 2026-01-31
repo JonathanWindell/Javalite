@@ -1,4 +1,4 @@
-public class LoggerConfig {
+public class LogConfig {
 
     // Minimum logger level
     private Logger.LogType minimumLogLevel = Logger.LogType.INFO;

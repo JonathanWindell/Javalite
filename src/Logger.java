@@ -12,26 +12,9 @@ import java.nio.Buffer;
  */
 public class Logger {
 
-    // Collection to store log entries
-    private ArrayList<LogEntry> log = new ArrayList<>(); 
-    private LoggerConfig config;
 
-    /**
-     * Constructor with existing log list
-     * @param log List of log entries
-     */
-    public Logger(ArrayList<LogEntry> log, LoggerConfig config) {
-        this.log = log;
-        this.config = config;
-    }
 
-    /**
-     * Returns the current log list
-     * @return ArrayList of log entries
-     */
-    public ArrayList<LogEntry> getLog() {
-        return log;
-    }
+
 
 
     
@@ -51,7 +34,7 @@ public class Logger {
      * @param e The exception to log
      * @param context Description of where the exception occurred
      */
-    public void logImportantException(Exception e, String context, LoggerConfig config) {
+    public void logImportantException(Exception e, String context, LogConfig config) {
         LogType logType;
 
         if (e instanceof NullPointerException || 

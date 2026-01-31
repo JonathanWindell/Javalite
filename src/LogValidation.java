@@ -1,8 +1,20 @@
 
+/**
+ * LogValidation validates log message
+ * @param logMessage Input from LogEntry
+ * @param cleanedLogMessage Output from LogValidation
+ */
 
-LogRepositoryeates a new log file or reports if it exists
-     * @param errorOutput Stream where error messages should be written
-     */
+/**
+ * This file will contain Bean validation
+ * Bean resources: 
+ * https://www.baeldung.com/java-validation 
+ * https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html
+ */
+
+
+
+/** 
     public void createLogFile(PrintStream errorOutput) {
         try {
 
@@ -52,6 +64,8 @@ LogRepositoryeates a new log file or reports if it exists
     /**
      * Enum for standard log types
      */
-    public enum LogType {
-        ERROR, INFO, WARNING, DEBUG
-    }
+    // public enum LogType {
+        //ERROR, INFO, WARNING, DEBUG
+    // }
+*/
+
