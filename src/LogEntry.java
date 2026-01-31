@@ -1,4 +1,3 @@
-package Step4LoggerTesting;
 import java.time.LocalDateTime;
 
 /**
