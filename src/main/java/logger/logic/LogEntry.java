@@ -1,3 +1,6 @@
+package logger.logic;
+
+
 import java.time.LocalDateTime;
 
 /**

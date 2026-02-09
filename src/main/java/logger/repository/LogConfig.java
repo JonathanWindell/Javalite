@@ -1,3 +1,6 @@
+import Logger;
+
+package main.java.logger.repository;
 public class LogConfig {
 
     // Minimum logger level
