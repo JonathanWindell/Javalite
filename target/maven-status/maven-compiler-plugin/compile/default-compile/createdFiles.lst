@@ -1,7 +1,0 @@
-logger\contract\ILogger.class
-logger\Main.class
-logger\logic\LogValidation.class
-logger\contract\ILogger$ConsoleLogger.class
-logger\repository\LogRepository.class
-logger\logic\LogEntry.class
-logger\repository\LogConfig.class
