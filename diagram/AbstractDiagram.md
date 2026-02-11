@@ -1,47 +1,35 @@
 ```mermaid
     classDiagram
+    %% Användaren ser bara ILogger/Logger
+    User --> ILogger : Uses
 
-    %% --- Relationships ---
+    %% Logger styr de andra delarna
+    Logger ..|> ILogger : Implements
+    Logger --> LogEntry : Creates
+    Logger --> LogValidation : Asks for check
+    Logger --> LogRepository : Commands to save
 
-    Database <-- LogRepository : Sends
+    %% Business logic
+    LogRepository --> Database : Persists
+    LogRepository --> LogConfig : Reads path
 
-    LogRepository <-- LogValidation : Validated Data
-
-    LogConfig --> LogRepository : Config 
-
-    LogValidation <-- LogEntry : Validates Data
-
-    ILogger --> LogEntry : Gives Structure
-
-    namespace DatabaseLayer {
-        class Database {
-            SQLite Database
-            Contains Logs
-        }
+    namespace InterfaceLayer {
+        class ILogger { <<interface>> }
+        class Logger { +log(String msg) }
     }
 
     namespace BusinessLayer {
-        class LogRepository {
-            Database Connection
-        }
-
-        class LogConfig {
-            Contains File Path 
-        }
-
-        class LogValidation {
-            Rules for data
-        }
+        class LogValidation { +isValid(LogEntry) }
+        class LogRepository { +save(LogEntry) }
+        class LogConfig { path : String }
     }
 
     namespace EntityLayer {
-        class LogEntry {
-            Assembles Log Messages
-        }
+        class LogEntry { data fields }
+    }
 
-        class ILogger {
-            Format for logs
-        }
+    namespace DatabaseLayer {
+        class Database { SQLite }
     }
 
 ```

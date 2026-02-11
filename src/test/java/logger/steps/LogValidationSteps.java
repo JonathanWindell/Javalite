@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 
 
 public class LogValidationSteps {
@@ -34,13 +35,20 @@ public class LogValidationSteps {
      * @param message
      * @param level
      */
-    @When("a log message is created with time {timestamp}, message {string}, and level {string}")
+    @When("a log message is created with time {string}, message {string}, and level {string}")
     public void log_message_is_correctly_formatted(String timestamp, String message, String level) {
         if (messageReceived) {
-        LocalDateTime timeObj = LocalDateTime.parse(timestamp);
+        LocalDateTime timeObj = null;
+            try {
+                if (!timestamp.isEmpty()) {
+                    timeObj = LocalDateTime.parse(timestamp);
+                }
+            } catch (Exception e) {
+                // timeObj stay null. 
+            }
+
 
         LogEntry entry = new LogEntry(timeObj, message, level);
-        
         this.validationResult = validator.isValid(entry);
         }
         

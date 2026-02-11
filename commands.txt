@@ -1,0 +1,7 @@
+Maven commands
+
+mvn clean compile
+
+mvn run
+
+mvn test
