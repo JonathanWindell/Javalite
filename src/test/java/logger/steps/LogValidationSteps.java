@@ -1,5 +1,7 @@
 package logger.steps;
 
+import logger.logic.LogValidation;
+import logger.logic.LogEntry;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -9,11 +11,11 @@ import java.time.LocalDateTime;
 
 public class LogValidationSteps {
 
-    public boolean messageReceived;
-    public LocalDateTime testTimeStamp;
+    public LocalDateTime testTimeStamp; 
     public String testMessage;
     public String testLevel;
 
+    public boolean messageReceived = false;
     private boolean validationResult;
     private LogValidation validator = new LogValidation();
 
@@ -32,24 +34,36 @@ public class LogValidationSteps {
      * @param message
      * @param level
      */
-    @When("a log message is created with time {string}, message {string}, and level {string}")
+    @When("a log message is created with time {timestamp}, message {string}, and level {string}")
     public void log_message_is_correctly_formatted(String timestamp, String message, String level) {
         if (messageReceived) {
-            testTimeStamp = LocalDateTime.now();
-            testMessage = "This is valid formatting";
-            testLevel = "Warning";
+        LocalDateTime timeObj = LocalDateTime.parse(timestamp);
 
-            LogEntry logEntry = new LogEntry(timestamp, message, level);
+        LogEntry entry = new LogEntry(timeObj, message, level);
+        
+        this.validationResult = validator.isValid(entry);
         }
         
     }
 
     @Then("the log message should be accepted") 
     public void verify_acceptance() {
-
+        assertTrue("Log should be accepted", this.validationResult);
     }
 
-    
-    
+    @Then("the log message should be rejected due to missing data")
+    public void deny_acceptance() {
+        assertFalse("Log should be denied",  this.validationResult);
+    }
+
+    @Then("the user should get a confirmation message")
+    public void verify_acceptance_confirmation() {
+        assertTrue(validationResult);
+    }
+
+    @Then("the user should get a rejection message describing the error")
+    public void send_rejection_confirmation( ){
+        assertFalse(validationResult);
+    }
 
 }
