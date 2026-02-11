@@ -1,0 +1,38 @@
+-------------------------------------------------------------------------------
+Test set: logger.runners.RunCucumberTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.769 s <<< FAILURE! - in logger.runners.RunCucumberTest
+Database validation logic.Message is succesfully saved in database  Time elapsed: 0.081 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'a log message arrives we should expect it to be validated and ready for insertion in to database.' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("a log message arrives we should expect it to be validated and ready for insertion in to database.")
+public void a_log_message_arrives_we_should_expect_it_to_be_validated_and_ready_for_insertion_in_to_database() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("log message should be sent in to matching rows either timestamp, message or type.")
+public void log_message_should_be_sent_in_to_matching_rows_either_timestamp_message_or_type() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should get a confirmation message")
+public void user_should_get_a_confirmation_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Database validation logic.Message is correctly disregarded if database shuts down  Time elapsed: 0.001 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'a' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("a")
+public void a() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

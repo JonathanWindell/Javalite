@@ -20,8 +20,6 @@ public class LogRepository {
         try (var conn = DriverManager.getConnection(url);
              var pstmt = conn.prepareStatement(sql)) {
 
-            // JDBC-index börjar på 1, inte 0!
-            // Vi hämtar datan från vårt entry-objekt
             pstmt.setString(1, entry.getTimeStamp().toString()); 
             pstmt.setString(2, entry.getMessage());
             pstmt.setString(3, entry.getType());
