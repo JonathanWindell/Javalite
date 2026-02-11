@@ -60,7 +60,7 @@ public class LogEntry {
     public String getMessage() {
         return message;
     }
-    
+
     /**
      * Formats the log entry as a string
      * @return Formatted string with timestamp, type, and message

@@ -4,9 +4,13 @@ Feature: Database validation logic
         Log message is validated and accepted
 
     Scenario Outline: Message is succesfully saved in database
-    When a log message arrives we should expect it to be validated and ready for insertion in to database.
-    Then log message should be sent in to matching rows either timestamp, message or type. 
-    And user should get a confirmation message
+    Given the database is operational
+    And a validated log message "System start" with level "INFO" exists
+    When the log message is sent to the repository
+    Then a new row should exist in the "logs" table
+    And the saved message should match "System start"
 
-    Scenario Outline: Message is correctly disregarded if database shuts down
-    When a 
+    Scenario Outline: Message is disregarded if database is not operational
+    When a log message arrives we should expect it to not be saved
+    Then the log message should be removed 
+    And user should get message describing that database is not operational

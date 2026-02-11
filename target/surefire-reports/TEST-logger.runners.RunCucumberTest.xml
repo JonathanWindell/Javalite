@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="logger.runners.RunCucumberTest" time="0.731" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="logger.runners.RunCucumberTest" time="0.769" tests="6" errors="2" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="SE"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-24\bin"/>
-    <property name="sun.java.command" value="C:\Users\xioni\AppData\Local\Temp\surefire7331845262602193920\surefirebooter-20260211112801930_3.jar C:\Users\xioni\AppData\Local\Temp\surefire7331845262602193920 2026-02-11T11-28-01_729-jvmRun1 surefire-20260211112801930_1tmp surefire_0-20260211112801930_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\xioni\AppData\Local\Temp\surefire17807016202226700342\surefirebooter-20260211132506952_3.jar C:\Users\xioni\AppData\Local\Temp\surefire17807016202226700342 2026-02-11T13-25-06_754-jvmRun1 surefire-20260211132506952_1tmp surefire_0-20260211132506952_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\xioni\Desktop\Programming\JavaLogger\target\test-classes;C:\Users\xioni\Desktop\Programming\JavaLogger\target\classes;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-java\7.11.2\cucumber-java-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-core\7.11.2\cucumber-core-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-gherkin\7.11.2\cucumber-gherkin-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.11.2\cucumber-gherkin-messages-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\gherkin\26.0.3\gherkin-26.0.3.jar;C:\Users\xioni\.m2\repository\io\cucumber\messages\21.0.1\messages-21.0.1.jar;C:\Users\xioni\.m2\repository\io\cucumber\tag-expressions\5.0.1\tag-expressions-5.0.1.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-expressions\16.1.2\cucumber-expressions-16.1.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\datatable\7.11.2\datatable-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-plugin\7.11.2\cucumber-plugin-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\docstring\7.11.2\docstring-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\html-formatter\20.2.1\html-formatter-20.2.1.jar;C:\Users\xioni\.m2\repository\io\cucumber\junit-xml-formatter\0.1.0\junit-xml-formatter-0.1.0.jar;C:\Users\xioni\.m2\repository\io\cucumber\ci-environment\9.1.0\ci-environment-9.1.0.jar;C:\Users\xioni\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-junit\7.11.2\cucumber-junit-7.11.2.jar;C:\Users\xioni\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\xioni\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\xioni\.m2\repository\org\hibernate\validator\hibernate-validator\9.1.0.Final\hibernate-validator-9.1.0.Final.jar;C:\Users\xioni\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\xioni\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\xioni\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\xioni\.m2\repository\org\glassfish\jakarta.el\4.0.2\jakarta.el-4.0.2.jar;C:\Users\xioni\.m2\repository\jakarta\el\jakarta.el-api\4.0.0\jakarta.el-api-4.0.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\xioni\AppData\Local\Temp\surefire7331845262602193920\surefirebooter-20260211112801930_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\xioni\AppData\Local\Temp\surefire17807016202226700342\surefirebooter-20260211132506952_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="24.0.1+9-30"/>
@@ -58,7 +58,53 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="Successful validation #1" classname="Log Validation logic" time="0.258">
+  <testcase name="Message is succesfully saved in database" classname="Database validation logic" time="0.081">
+    <error message="The step &apos;a log message arrives we should expect it to be validated and ready for insertion in to database.&apos; and 2 other step(s) are undefined.&#10;You can implement these steps using the snippet(s) below:&#10;&#10;@When(&quot;a log message arrives we should expect it to be validated and ready for insertion in to database.&quot;)&#10;public void a_log_message_arrives_we_should_expect_it_to_be_validated_and_ready_for_insertion_in_to_database() {&#10;    // Write code here that turns the phrase above into concrete actions&#10;    throw new io.cucumber.java.PendingException();&#10;}&#10;@Then(&quot;log message should be sent in to matching rows either timestamp, message or type.&quot;)&#10;public void log_message_should_be_sent_in_to_matching_rows_either_timestamp_message_or_type() {&#10;    // Write code here that turns the phrase above into concrete actions&#10;    throw new io.cucumber.java.PendingException();&#10;}&#10;@Then(&quot;user should get a confirmation message&quot;)&#10;public void user_should_get_a_confirmation_message() {&#10;    // Write code here that turns the phrase above into concrete actions&#10;    throw new io.cucumber.java.PendingException();&#10;}&#10;" type="io.cucumber.junit.UndefinedStepException"><![CDATA[io.cucumber.junit.UndefinedStepException: 
+The step 'a log message arrives we should expect it to be validated and ready for insertion in to database.' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("a log message arrives we should expect it to be validated and ready for insertion in to database.")
+public void a_log_message_arrives_we_should_expect_it_to_be_validated_and_ready_for_insertion_in_to_database() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("log message should be sent in to matching rows either timestamp, message or type.")
+public void log_message_should_be_sent_in_to_matching_rows_either_timestamp_message_or_type() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should get a confirmation message")
+public void user_should_get_a_confirmation_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+]]></error>
+    <system-out><![CDATA[
+Scenario Outline: Message is succesfully saved in database                                               &amp#27;[90m# src/test/resources/features/LogRepository.feature:6&amp#27;[0m
+  &amp#27;[33mWhen &amp#27;[0m&amp#27;[33ma log message arrives we should expect it to be validated and ready for insertion in to database.&amp#27;[0m
+  &amp#27;[36mThen &amp#27;[0m&amp#27;[36mlog message should be sent in to matching rows either timestamp, message or type.&amp#27;[0m
+  &amp#27;[36mAnd &amp#27;[0m&amp#27;[36muser should get a confirmation message&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="Message is correctly disregarded if database shuts down" classname="Database validation logic" time="0.001">
+    <error message="The step &apos;a&apos; is undefined.&#10;You can implement this step using the snippet(s) below:&#10;&#10;@When(&quot;a&quot;)&#10;public void a() {&#10;    // Write code here that turns the phrase above into concrete actions&#10;    throw new io.cucumber.java.PendingException();&#10;}&#10;" type="io.cucumber.junit.UndefinedStepException"><![CDATA[io.cucumber.junit.UndefinedStepException: 
+The step 'a' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("a")
+public void a() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+]]></error>
+    <system-out><![CDATA[
+Scenario Outline: Message is correctly disregarded if database shuts down &amp#27;[90m# src/test/resources/features/LogRepository.feature:11&amp#27;[0m
+  &amp#27;[33mWhen &amp#27;[0m&amp#27;[33ma&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="Successful validation #1" classname="Log Validation logic" time="0.205">
     <system-out><![CDATA[
 Scenario Outline: Successful validation                                                                   &amp#27;[90m# src/test/resources/features/LogValidation.feature:13&amp#27;[0m
   &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mlog message is received by log validation&amp#27;[0m                                                         &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_received_by_log_validation()&amp#27;[0m
@@ -66,11 +112,11 @@ Scenario Outline: Successful validation                                         
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe log message should be accepted&amp#27;[0m                                                                 &amp#27;[90m# logger.steps.LogValidationSteps.verify_acceptance()&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user should get a confirmation message&amp#27;[0m                                                          &amp#27;[90m# logger.steps.LogValidationSteps.verify_acceptance_confirmation()&amp#27;[0m
 ]]></system-out>
-    <system-err><![CDATA[feb. 11, 2026 11:28:02 FM org.hibernate.validator.internal.util.Version <clinit>
+    <system-err><![CDATA[feb. 11, 2026 1:25:07 EM org.hibernate.validator.internal.util.Version <clinit>
 INFO: HV000001: Hibernate Validator 9.1.0.Final
 ]]></system-err>
   </testcase>
-  <testcase name="Successful validation #2" classname="Log Validation logic" time="0.012">
+  <testcase name="Successful validation #2" classname="Log Validation logic" time="0.009">
     <system-out><![CDATA[
 Scenario Outline: Successful validation                                                                      &amp#27;[90m# src/test/resources/features/LogValidation.feature:14&amp#27;[0m
   &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mlog message is received by log validation&amp#27;[0m                                                            &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_received_by_log_validation()&amp#27;[0m
@@ -79,7 +125,7 @@ Scenario Outline: Successful validation                                         
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user should get a confirmation message&amp#27;[0m                                                             &amp#27;[90m# logger.steps.LogValidationSteps.verify_acceptance_confirmation()&amp#27;[0m
 ]]></system-out>
   </testcase>
-  <testcase name="Failed validation due to missing data #1" classname="Log Validation logic" time="0.015">
+  <testcase name="Failed validation due to missing data #1" classname="Log Validation logic" time="0.014">
     <system-out><![CDATA[
 Scenario Outline: Failed validation due to missing data                                 &amp#27;[90m# src/test/resources/features/LogValidation.feature:23&amp#27;[0m
   &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mlog message is received by log validation&amp#27;[0m                                       &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_received_by_log_validation()&amp#27;[0m
@@ -88,7 +134,7 @@ Scenario Outline: Failed validation due to missing data                         
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user should get a rejection message describing the error&amp#27;[0m                      &amp#27;[90m# logger.steps.LogValidationSteps.send_rejection_confirmation()&amp#27;[0m
 ]]></system-out>
   </testcase>
-  <testcase name="Failed validation due to missing data #2" classname="Log Validation logic" time="0.008">
+  <testcase name="Failed validation due to missing data #2" classname="Log Validation logic" time="0.011">
     <system-out><![CDATA[
 Scenario Outline: Failed validation due to missing data                               &amp#27;[90m# src/test/resources/features/LogValidation.feature:24&amp#27;[0m
   &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mlog message is received by log validation&amp#27;[0m                                     &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_received_by_log_validation()&amp#27;[0m
