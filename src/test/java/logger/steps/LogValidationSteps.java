@@ -7,8 +7,6 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeParseException;
-
 
 public class LogValidationSteps {
 

@@ -6,7 +6,7 @@ import logger.logic.LogEntry;
 
 /**
 * LogRepository contains the database connection. 
-* @param message Log message content
+* @param timeStamp timestamp of message
 * @param message Log message content
 * @param type Log entry type
 */
@@ -30,6 +30,29 @@ public class LogRepository {
         } catch (SQLException e) {
             System.err.println("Database error: " + e.getMessage());
         }
+    }
+
+    public int getLogCount() {
+        var sql = "SELECT COUNT(*) FROM messages";
+
+        try (var conn = DriverManager.getConnection(url);
+             var stmt = conn.createStatement();
+             var rs = stmt.executeQuery(sql) {
+
+            while (rs.next()) {
+                System.out.printf("%-5s%-25s%-10s%n",
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getDouble("capacity")
+                );
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public String getLastEntryMessage() {
+        var sql1 = "SELECT * FROM messages ORDER BY id DESC LIMIT 1";
     }
 }
 
