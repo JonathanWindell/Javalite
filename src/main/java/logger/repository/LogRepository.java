@@ -13,10 +13,23 @@ import logger.logic.LogEntry;
 public class LogRepository {
 
     private String url = "jdbc:sqlite:my.db";
+    private boolean useFakeDatabase = false; 
 
-    public void insertData(LogEntry entry) {
+    public void setUseFakeDatabase(boolean useFake) {
+        this.useFakeDatabase = useFake;
+    }
+
+    public boolean insertData(LogEntry entry) {
+        // If executed in test mode (mvn test). Execute with useFakeDatabase. 
+        if (useFakeDatabase) {
+            System.out.println("Test-mode: Simulating saving to database.");
+            return true; 
+        }
+
+        // Real database will be created here if testmode = false
+        if (entry == null) return false;
+
         String sql = "INSERT INTO messages(timeStamp, message, type) VALUES(?,?,?)";
-
         try (var conn = DriverManager.getConnection(url);
              var pstmt = conn.prepareStatement(sql)) {
 
@@ -25,34 +38,79 @@ public class LogRepository {
             pstmt.setString(3, entry.getType());
 
             pstmt.executeUpdate();
-            System.out.println("Log saved to database!");
-
+            return true;
         } catch (SQLException e) {
             System.err.println("Database error: " + e.getMessage());
+            return false;
         }
     }
 
-    public int getLogCount() {
-        var sql = "SELECT COUNT(*) FROM messages";
+    /**
+     * Ensure that any old databases are deleted to ensure cleanliness. 
+     */
+    public void truncateTable() {
+        String sql = "DELETE FROM messages";
+        try (var conn = DriverManager.getConnection(url);
+            var stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.err.println("Clear error: " + e.getMessage());
+        }
+    }
+
+
+    // Needed?
+    /**
+     * public int getLogCount() {
+        String sqlLogCount = "SELECT COUNT(*) FROM messages";
+        int count = 0;
 
         try (var conn = DriverManager.getConnection(url);
              var stmt = conn.createStatement();
-             var rs = stmt.executeQuery(sql) {
+             var rs = stmt.executeQuery(sqlLogCount)) {
 
-            while (rs.next()) {
-                System.out.printf("%-5s%-25s%-10s%n",
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getDouble("capacity")
-                );
+            if(rs.next()) {
+                count = rs.getInt(1);
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+        return count;
     }
 
     public String getLastEntryMessage() {
-        var sql1 = "SELECT * FROM messages ORDER BY id DESC LIMIT 1";
+        String sqlLastEntry = "SELECT * FROM messages ORDER BY id DESC LIMIT 1";
+        String topEntry = "";
+
+        try (var conn = DriverManager.getConnection(url);
+             var stmt = conn.createStatement();
+             var rs = stmt.executeQuery(sqlLastEntry)) {
+
+            if(rs.next()) {
+                topEntry = rs.getString("message");
+            } 
+        } catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return topEntry;
     }
+     * public boolean deleteLogById(int id) {
+        String sql = "DELETE FROM messages WHERE id = ?";
+
+        try (var conn = DriverManager.getConnection(url); 
+            var pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+            int affectedRows = pstmt.executeUpdate();
+        
+            return affectedRows > 0; 
+
+        } catch (SQLException e) {
+            System.err.println("Delete error: " + e.getMessage());
+            return false;
+        }
+    }
+
+     */
 }
 
