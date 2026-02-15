@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.Before;
+import io.cucumber.java.After;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
 import logger.repository.LogRepository;
@@ -37,7 +38,6 @@ public class LogRepositorySteps {
     @Given("the database is operational")
     public void databaseIsOperational(){
         operationalDatabase = true;
-        // Vi kan också verifiera anslutningen här om vi vill vara noga
     }
     
     @Given("a validated log message {string} with level {string} exists")
@@ -60,21 +60,20 @@ public class LogRepositorySteps {
         assertTrue("Log was not saved in database!", wasSaved);
     }
 
-    /**
-     * 
-     */
     @Then("the saved message should match {string}")
     public void verifySavedMessages(String expectedMessage) {
         // Asserts that message corresponds with the message saved. 
         assertTrue("Message was correct", operationalDatabase);
     }
 
-
-
     /**
-     * @Given("the database is not operational")
+     * Error scenario. Error path
+     */
+    @Given("the database is not operational")
     public void notOperationalDatabase() {
-        logRepository.setDatabaseUrl("jdbc:sqlite:/mapp/does/not/exist/fake.db");
+        logRepository.setUseFakeDatabase(false);
+
+        logRepository.setFakeDatabaseUrl("jdbc:sqlite:/mapp/does/not/exist/fake.db");
     }
 
     @When("a log message arrives we should expect it to not be saved")
@@ -82,7 +81,7 @@ public class LogRepositorySteps {
         wasSaved = logRepository.insertData(entry);
     }
 
-    @Then("the log message should be removed")
+    @Then("the log message should be denied")
     public void verifyNothingSaved() {
         int count = logRepository.getLogCount();
         assertEquals(0, count);
@@ -92,7 +91,19 @@ public class LogRepositorySteps {
     public void verifyErrorMessage() {
         assertFalse("Message was saved though it should not have been", wasSaved);
     }
-     */
+
+    @After
+    public void tearDown() {
+        logRepository.setCorrectUrl("jdbc:sqlite:my.db");
+        logRepository.setUseFakeDatabase(false);
+
+        operationalDatabase = false;
+        wasSaved = false;
+    
+    System.out.println(">>> Cleaning done. DatabaseUrl is reverted.");
+}
+
+
 
 }
     

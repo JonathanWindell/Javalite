@@ -11,8 +11,9 @@ Feature: Database validation logic
     And the saved message should match "System start"
 
     Scenario: Message is disregarded if database is not operational
-    Given the database is not operational
+    Given a validated log message "Error test" with level "ERROR" exists
+    And the database is not operational
     When a log message arrives we should expect it to not be saved
-    Then the log message should be removed 
+    Then the log message should be denied
     And user should get message describing that database is not operational
     

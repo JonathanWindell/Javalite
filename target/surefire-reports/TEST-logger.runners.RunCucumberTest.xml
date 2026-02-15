@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="logger.runners.RunCucumberTest" time="0.738" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="logger.runners.RunCucumberTest" time="0.756" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="SE"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-24\bin"/>
-    <property name="sun.java.command" value="C:\Users\xioni\AppData\Local\Temp\surefire14174960979285726043\surefirebooter-20260215104900949_3.jar C:\Users\xioni\AppData\Local\Temp\surefire14174960979285726043 2026-02-15T10-49-00_749-jvmRun1 surefire-20260215104900949_1tmp surefire_0-20260215104900949_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\xioni\AppData\Local\Temp\surefire11891071237370140391\surefirebooter-20260215114128723_3.jar C:\Users\xioni\AppData\Local\Temp\surefire11891071237370140391 2026-02-15T11-41-28_526-jvmRun1 surefire-20260215114128723_1tmp surefire_0-20260215114128723_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\xioni\Desktop\Programming\JavaLogger\target\test-classes;C:\Users\xioni\Desktop\Programming\JavaLogger\target\classes;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-java\7.11.2\cucumber-java-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-core\7.11.2\cucumber-core-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-gherkin\7.11.2\cucumber-gherkin-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.11.2\cucumber-gherkin-messages-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\gherkin\26.0.3\gherkin-26.0.3.jar;C:\Users\xioni\.m2\repository\io\cucumber\messages\21.0.1\messages-21.0.1.jar;C:\Users\xioni\.m2\repository\io\cucumber\tag-expressions\5.0.1\tag-expressions-5.0.1.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-expressions\16.1.2\cucumber-expressions-16.1.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\datatable\7.11.2\datatable-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-plugin\7.11.2\cucumber-plugin-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\docstring\7.11.2\docstring-7.11.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\html-formatter\20.2.1\html-formatter-20.2.1.jar;C:\Users\xioni\.m2\repository\io\cucumber\junit-xml-formatter\0.1.0\junit-xml-formatter-0.1.0.jar;C:\Users\xioni\.m2\repository\io\cucumber\ci-environment\9.1.0\ci-environment-9.1.0.jar;C:\Users\xioni\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\xioni\.m2\repository\io\cucumber\cucumber-junit\7.11.2\cucumber-junit-7.11.2.jar;C:\Users\xioni\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\xioni\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\xioni\.m2\repository\org\hibernate\validator\hibernate-validator\9.1.0.Final\hibernate-validator-9.1.0.Final.jar;C:\Users\xioni\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\xioni\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\xioni\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\xioni\.m2\repository\org\glassfish\jakarta.el\4.0.2\jakarta.el-4.0.2.jar;C:\Users\xioni\.m2\repository\jakarta\el\jakarta.el-api\4.0.0\jakarta.el-api-4.0.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\xioni\AppData\Local\Temp\surefire14174960979285726043\surefirebooter-20260215104900949_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\xioni\AppData\Local\Temp\surefire11891071237370140391\surefirebooter-20260215114128723_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="24.0.1+9-30"/>
@@ -58,18 +58,35 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="Message is succesfully saved in database" classname="Database validation logic" time="0.069">
+  <testcase name="Message is succesfully saved in database" classname="Database validation logic" time="0.08">
     <system-out><![CDATA[
 Scenario: Message is succesfully saved in database                    &amp#27;[90m# src/test/resources/features/LogRepository.feature:6&amp#27;[0m
 No suitable driver found for jdbc:sqlite:my.db
   &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mthe database is operational&amp#27;[0m                                   &amp#27;[90m# logger.steps.LogRepositorySteps.databaseIsOperational()&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32ma validated log message &amp#27;[0m&amp#27;[32m&amp#27;[1m"System start"&amp#27;[0m&amp#27;[32m with level &amp#27;[0m&amp#27;[32m&amp#27;[1m"INFO"&amp#27;[0m&amp#27;[32m exists&amp#27;[0m &amp#27;[90m# logger.steps.LogRepositorySteps.validatedMessageExists(java.lang.String,java.lang.String)&amp#27;[0m
-Testläge: Simulerar sparande till databas...
+Test-mode: Simulating saving to database.
   &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mthe log message is sent to the repository&amp#27;[0m                      &amp#27;[90m# logger.steps.LogRepositorySteps.messageToRepository()&amp#27;[0m
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32ma new row should exist in the logs table&amp#27;[0m                       &amp#27;[90m# logger.steps.LogRepositorySteps.validateCreateNewRow()&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe saved message should match &amp#27;[0m&amp#27;[32m&amp#27;[1m"System start"&amp#27;[0m                   &amp#27;[90m# logger.steps.LogRepositorySteps.verifySavedMessages(java.lang.String)&amp#27;[0m
+>>> Cleaning done. DatabaseUrl is reverted.
 ]]></system-out>
     <system-err><![CDATA[Clear error: No suitable driver found for jdbc:sqlite:my.db
+]]></system-err>
+  </testcase>
+  <testcase name="Message is disregarded if database is not operational" classname="Database validation logic" time="0.004">
+    <system-out><![CDATA[
+Scenario: Message is disregarded if database is not operational           &amp#27;[90m# src/test/resources/features/LogRepository.feature:13&amp#27;[0m
+No suitable driver found for jdbc:sqlite:my.db
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32ma validated log message &amp#27;[0m&amp#27;[32m&amp#27;[1m"Error test"&amp#27;[0m&amp#27;[32m with level &amp#27;[0m&amp#27;[32m&amp#27;[1m"ERROR"&amp#27;[0m&amp#27;[32m exists&amp#27;[0m    &amp#27;[90m# logger.steps.LogRepositorySteps.validatedMessageExists(java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe database is not operational&amp#27;[0m                                     &amp#27;[90m# logger.steps.LogRepositorySteps.notOperationalDatabase()&amp#27;[0m
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32ma log message arrives we should expect it to not be saved&amp#27;[0m          &amp#27;[90m# logger.steps.LogRepositorySteps.attemptToSave()&amp#27;[0m
+  &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe log message should be denied&amp#27;[0m                                   &amp#27;[90m# logger.steps.LogRepositorySteps.verifyNothingSaved()&amp#27;[0m
+  &amp#27;[32mAnd &amp#27;[0m&amp#27;[32muser should get message describing that database is not operational&amp#27;[0m &amp#27;[90m# logger.steps.LogRepositorySteps.verifyErrorMessage()&amp#27;[0m
+>>> Cleaning done. DatabaseUrl is reverted.
+]]></system-out>
+    <system-err><![CDATA[Clear error: No suitable driver found for jdbc:sqlite:my.db
+Database error: No suitable driver found for jdbc:sqlite:my.db
+No suitable driver found for jdbc:sqlite:my.db
 ]]></system-err>
   </testcase>
   <testcase name="Successful validation #1" classname="Log Validation logic" time="0.18">
@@ -80,13 +97,14 @@ No suitable driver found for jdbc:sqlite:my.db
   &amp#27;[32mWhen &amp#27;[0m&amp#27;[32ma log message is created with time &amp#27;[0m&amp#27;[32m&amp#27;[1m"2026-02-11T11:00:00"&amp#27;[0m&amp#27;[32m, message &amp#27;[0m&amp#27;[32m&amp#27;[1m"System start"&amp#27;[0m&amp#27;[32m, and level &amp#27;[0m&amp#27;[32m&amp#27;[1m"INFO"&amp#27;[0m &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_correctly_formatted(java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe log message should be accepted&amp#27;[0m                                                                 &amp#27;[90m# logger.steps.LogValidationSteps.verify_acceptance()&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user should get a confirmation message&amp#27;[0m                                                          &amp#27;[90m# logger.steps.LogValidationSteps.verify_acceptance_confirmation()&amp#27;[0m
+>>> Cleaning done. DatabaseUrl is reverted.
 ]]></system-out>
     <system-err><![CDATA[Clear error: No suitable driver found for jdbc:sqlite:my.db
-feb. 15, 2026 10:49:01 FM org.hibernate.validator.internal.util.Version <clinit>
+feb. 15, 2026 11:41:29 FM org.hibernate.validator.internal.util.Version <clinit>
 INFO: HV000001: Hibernate Validator 9.1.0.Final
 ]]></system-err>
   </testcase>
-  <testcase name="Successful validation #2" classname="Log Validation logic" time="0.011">
+  <testcase name="Successful validation #2" classname="Log Validation logic" time="0.014">
     <system-out><![CDATA[
 Scenario Outline: Successful validation                                                                      &amp#27;[90m# src/test/resources/features/LogValidation.feature:14&amp#27;[0m
 No suitable driver found for jdbc:sqlite:my.db
@@ -94,11 +112,12 @@ No suitable driver found for jdbc:sqlite:my.db
   &amp#27;[32mWhen &amp#27;[0m&amp#27;[32ma log message is created with time &amp#27;[0m&amp#27;[32m&amp#27;[1m"2026-02-11T11:00:00"&amp#27;[0m&amp#27;[32m, message &amp#27;[0m&amp#27;[32m&amp#27;[1m"System start"&amp#27;[0m&amp#27;[32m, and level &amp#27;[0m&amp#27;[32m&amp#27;[1m"WARNING"&amp#27;[0m &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_correctly_formatted(java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe log message should be accepted&amp#27;[0m                                                                    &amp#27;[90m# logger.steps.LogValidationSteps.verify_acceptance()&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user should get a confirmation message&amp#27;[0m                                                             &amp#27;[90m# logger.steps.LogValidationSteps.verify_acceptance_confirmation()&amp#27;[0m
+>>> Cleaning done. DatabaseUrl is reverted.
 ]]></system-out>
     <system-err><![CDATA[Clear error: No suitable driver found for jdbc:sqlite:my.db
 ]]></system-err>
   </testcase>
-  <testcase name="Failed validation due to missing data #1" classname="Log Validation logic" time="0.014">
+  <testcase name="Failed validation due to missing data #1" classname="Log Validation logic" time="0.016">
     <system-out><![CDATA[
 Scenario Outline: Failed validation due to missing data                                 &amp#27;[90m# src/test/resources/features/LogValidation.feature:23&amp#27;[0m
 No suitable driver found for jdbc:sqlite:my.db
@@ -106,11 +125,12 @@ No suitable driver found for jdbc:sqlite:my.db
   &amp#27;[32mWhen &amp#27;[0m&amp#27;[32ma log message is created with time &amp#27;[0m&amp#27;[32m&amp#27;[1m""&amp#27;[0m&amp#27;[32m, message &amp#27;[0m&amp#27;[32m&amp#27;[1m"System start"&amp#27;[0m&amp#27;[32m, and level &amp#27;[0m&amp#27;[32m&amp#27;[1m"DEBUG"&amp#27;[0m &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_correctly_formatted(java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe log message should be rejected due to missing data&amp#27;[0m                           &amp#27;[90m# logger.steps.LogValidationSteps.deny_acceptance()&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user should get a rejection message describing the error&amp#27;[0m                      &amp#27;[90m# logger.steps.LogValidationSteps.send_rejection_confirmation()&amp#27;[0m
+>>> Cleaning done. DatabaseUrl is reverted.
 ]]></system-out>
     <system-err><![CDATA[Clear error: No suitable driver found for jdbc:sqlite:my.db
 ]]></system-err>
   </testcase>
-  <testcase name="Failed validation due to missing data #2" classname="Log Validation logic" time="0.011">
+  <testcase name="Failed validation due to missing data #2" classname="Log Validation logic" time="0.01">
     <system-out><![CDATA[
 Scenario Outline: Failed validation due to missing data                               &amp#27;[90m# src/test/resources/features/LogValidation.feature:24&amp#27;[0m
 No suitable driver found for jdbc:sqlite:my.db
@@ -118,6 +138,7 @@ No suitable driver found for jdbc:sqlite:my.db
   &amp#27;[32mWhen &amp#27;[0m&amp#27;[32ma log message is created with time &amp#27;[0m&amp#27;[32m&amp#27;[1m"2026-02-11"&amp#27;[0m&amp#27;[32m, message &amp#27;[0m&amp#27;[32m&amp#27;[1m""&amp#27;[0m&amp#27;[32m, and level &amp#27;[0m&amp#27;[32m&amp#27;[1m"ERROR"&amp#27;[0m &amp#27;[90m# logger.steps.LogValidationSteps.log_message_is_correctly_formatted(java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe log message should be rejected due to missing data&amp#27;[0m                         &amp#27;[90m# logger.steps.LogValidationSteps.deny_acceptance()&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user should get a rejection message describing the error&amp#27;[0m                    &amp#27;[90m# logger.steps.LogValidationSteps.send_rejection_confirmation()&amp#27;[0m
+>>> Cleaning done. DatabaseUrl is reverted.
 ]]></system-out>
     <system-err><![CDATA[Clear error: No suitable driver found for jdbc:sqlite:my.db
 ]]></system-err>

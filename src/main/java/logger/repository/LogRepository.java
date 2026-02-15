@@ -12,11 +12,26 @@ import logger.logic.LogEntry;
 */
 public class LogRepository {
 
+    // Real database url 
     private String url = "jdbc:sqlite:my.db";
-    private boolean useFakeDatabase = false; 
 
+    // 
+    public void setCorrectUrl(String correctUrl){
+        this.url = correctUrl;
+    }
+
+    // Properties for testing purposes
+    private boolean useFakeDatabase = false; 
+    private String fakeDatabaseUrl;
+
+    // Fakes a connection to a database. 
     public void setUseFakeDatabase(boolean useFake) {
         this.useFakeDatabase = useFake;
+    }
+
+    // Allows for fake url for testing purposes. 
+    public void setFakeDatabaseUrl(String fakeUrl) {
+        this.fakeDatabaseUrl = fakeUrl;
     }
 
     public boolean insertData(LogEntry entry) {
@@ -58,10 +73,7 @@ public class LogRepository {
         }
     }
 
-
-    // Needed?
-    /**
-     * public int getLogCount() {
+    public int getLogCount() {
         String sqlLogCount = "SELECT COUNT(*) FROM messages";
         int count = 0;
 
@@ -77,6 +89,11 @@ public class LogRepository {
         }
         return count;
     }
+
+
+    // Needed?
+    /**
+     * 
 
     public String getLastEntryMessage() {
         String sqlLastEntry = "SELECT * FROM messages ORDER BY id DESC LIMIT 1";
