@@ -1,0 +1,4 @@
+logger\steps\LogValidationStep.class
+logger\steps\LogRepositoryStep.class
+logger\runners\RunCucumberTest.class
+logger\database\DatabaseTest.class

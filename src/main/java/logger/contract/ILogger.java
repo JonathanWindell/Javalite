@@ -16,6 +16,8 @@ public interface ILogger {
         }
     }
 
+    // user has to enter databaseURl
+
     /**
      * Enum for standard log types
      */
@@ -31,5 +33,6 @@ public interface ILogger {
     }
 
      */
+
 
 }

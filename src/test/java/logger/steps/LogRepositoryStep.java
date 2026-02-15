@@ -11,7 +11,7 @@ import logger.repository.LogRepository;
 import logger.database.Database;
 import logger.logic.LogEntry;
 
-public class LogRepositorySteps {
+public class LogRepositoryStep {
 
     // Create booleans for replication.
     private boolean operationalDatabase = false;
@@ -22,16 +22,21 @@ public class LogRepositorySteps {
     private LogRepository logRepository = new LogRepository();
 
     @Before
-    public void setup() {
-        // Create instance using fakedatabase. 
-        logRepository.setUseFakeDatabase(true); 
+    public void setup() {   
+    logRepository.setUseFakeDatabase(false); 
     
+    // Using dedicated test file instead of my.db
+    String testUrl = "jdbc:sqlite:test_logger.db";
+    logRepository.setCorrectUrl(testUrl); 
+
         try {
-            // Creates databasetable and deletes any old to ensure "cleanliness". 
-            Database.createDatabaseTable(); 
+            // Create table in test-database
+            Database.createDatabaseTable(testUrl); 
             logRepository.truncateTable();
         } catch (Exception e) {
-            // Execute in fake-mode. 
+            // Fall back to fake-mode 
+            logRepository.setUseFakeDatabase(true);
+            System.err.println("Could not initalize fake-db. Entering fake mode: " + e.getMessage());
         }
     }
 
@@ -73,7 +78,7 @@ public class LogRepositorySteps {
     public void notOperationalDatabase() {
         logRepository.setUseFakeDatabase(false);
 
-        logRepository.setFakeDatabaseUrl("jdbc:sqlite:/mapp/does/not/exist/fake.db");
+        logRepository.setCorrectUrl("jdbc:sqlite:/mapp/som/inte/finns/error.db");
     }
 
     @When("a log message arrives we should expect it to not be saved")

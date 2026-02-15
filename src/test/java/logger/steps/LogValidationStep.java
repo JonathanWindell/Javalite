@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
 
-public class LogValidationSteps {
+public class LogValidationStep {
 
     public LocalDateTime testTimeStamp; 
     public String testMessage;

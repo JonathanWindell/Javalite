@@ -5,41 +5,19 @@ import java.sql.SQLException;
 
 public class Database {
 
-    /**
-     * Method for creating database. If database already exists. 
-     * @param args
-     */
-    public static void createDatabaseTable(String url) { 
-        var sql = "CREATE TABLE IF NOT EXISTS messages (...)";
-        try (var conn = DriverManager.getConnection(url); 
-            var stmt = conn.createStatement()) {
-            stmt.execute(sql);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    /**
-     * Method for creating table. Checks first if table already exists. 
-     */
-    public static void createDatabaseTable() {
-        // SQLite connection 
-        var url = "jdbc:sqlite:my.db";
-
-        // SQL statement for creating a new table
+    public static void createDatabaseTable(String url) {
         var sql = "CREATE TABLE IF NOT EXISTS messages ("
-                + "	id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "	timeStamp TEXT NOT NULL,"
-                + "	message TEXT NOT NULL,"
-                + "	type TEXT NOT NULL"
+                + " id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + " timeStamp TEXT NOT NULL,"
+                + " message TEXT NOT NULL,"
+                + " type TEXT NOT NULL"
                 + ");";
 
         try (var conn = DriverManager.getConnection(url);
              var stmt = conn.createStatement()) {
-            // create a new table
             stmt.execute(sql);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.err.println("Database initialization error: " + e.getMessage());
         }
     }
 }

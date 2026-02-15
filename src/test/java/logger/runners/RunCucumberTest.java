@@ -1,15 +1,17 @@
 package logger.runners;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.junit.platform.engine.Constants;
+import org.junit.platform.suite.api.ConfigurationParameter;
+import org.junit.platform.suite.api.IncludeEngines;
+import org.junit.platform.suite.api.SelectClasspathResource;
+import org.junit.platform.suite.api.Suite;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(
-    features = "src/test/resources/features", 
-    glue = "logger.steps",                  
-    plugin = {"pretty", "html:target/cucumber-report.html"} 
-)
+@Suite
+@IncludeEngines("cucumber")
+// Denna pekar på mappen i src/test/resources där dina .feature-filer ligger
+@SelectClasspathResource("features") 
+// Denna berättar var dina steg-definitioner (Java-filer) ligger
+@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "logger.steps")
 public class RunCucumberTest {
-    // Act as start button
+    // Denna klass ska vara tom, den fungerar bara som en startknapp
 }
