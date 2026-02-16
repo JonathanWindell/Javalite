@@ -1,9 +1,9 @@
 package logger.database;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 import java.nio.file.Path;
 import java.sql.Connection;
@@ -82,12 +82,17 @@ public class DatabaseTest {
     }
 
     @Test
-    void notValidDatabaseString() {
+    @DisplayName("Test if non existent folder is handled correctly")
+    void notValidDatabaseString(@TempDir Path tempDir) {
         // Arrange
+        Path invalidPath = tempDir.resolve("non_Existent_folder/database.db");
+        String testUrl = "jdbc:sqlite:" + invalidPath.toString();
 
         // Act
+        Database.createDatabaseTable(testUrl);
 
         // Assert
+        assertFalse(Files.exists(invalidPath),"File Should not exist since format is not correct");
 
     }
 }

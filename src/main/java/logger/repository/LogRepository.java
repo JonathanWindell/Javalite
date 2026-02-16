@@ -89,45 +89,5 @@ public class LogRepository {
         }
         return count;
     }
-
-
-    // Needed?
-    /**
-     * 
-
-    public String getLastEntryMessage() {
-        String sqlLastEntry = "SELECT * FROM messages ORDER BY id DESC LIMIT 1";
-        String topEntry = "";
-
-        try (var conn = DriverManager.getConnection(url);
-             var stmt = conn.createStatement();
-             var rs = stmt.executeQuery(sqlLastEntry)) {
-
-            if(rs.next()) {
-                topEntry = rs.getString("message");
-            } 
-        } catch (SQLException e) {
-                System.err.println(e.getMessage());
-        }
-        return topEntry;
-    }
-     * public boolean deleteLogById(int id) {
-        String sql = "DELETE FROM messages WHERE id = ?";
-
-        try (var conn = DriverManager.getConnection(url); 
-            var pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setInt(1, id);
-            int affectedRows = pstmt.executeUpdate();
-        
-            return affectedRows > 0; 
-
-        } catch (SQLException e) {
-            System.err.println("Delete error: " + e.getMessage());
-            return false;
-        }
-    }
-
-     */
 }
 
