@@ -3,3 +3,11 @@
 target
 Target
 /target
+
+# Test database. Created when running tests. 
+test_logger.db
+
+# .Env files
+.Env
+.env
+

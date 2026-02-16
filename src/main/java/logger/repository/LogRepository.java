@@ -13,9 +13,14 @@ import logger.logic.LogEntry;
 public class LogRepository {
 
     // Real database url 
-    private String url = "jdbc:sqlite:my.db";
+    private String url;
 
     // 
+    public LogRepository() {
+        this.url = LogConfig.getDbURL();
+    }
+
+    // Sets correct url. Needed to differntiate between fake(test) & real(production)
     public void setCorrectUrl(String correctUrl){
         this.url = correctUrl;
     }
@@ -36,13 +41,10 @@ public class LogRepository {
 
     public boolean insertData(LogEntry entry) {
         // If executed in test mode (mvn test). Execute with useFakeDatabase. 
-        if (useFakeDatabase) {
-            System.out.println("Test-mode: Simulating saving to database.");
-            return true; 
-        }
-
-        // Real database will be created here if testmode = false
+        if (useFakeDatabase) return true;
         if (entry == null) return false;
+
+        String activeUrl = (this.url != null) ? this.url : LogConfig.getDbURL();
 
         String sql = "INSERT INTO messages(timeStamp, message, type) VALUES(?,?,?)";
         try (var conn = DriverManager.getConnection(url);
@@ -73,6 +75,12 @@ public class LogRepository {
         }
     }
 
+    /**
+     * Counts number of messages. 
+     * Used in tests to ensure that messages are created & deleted. 
+     * 
+     * @return count
+     */
     public int getLogCount() {
         String sqlLogCount = "SELECT COUNT(*) FROM messages";
         int count = 0;

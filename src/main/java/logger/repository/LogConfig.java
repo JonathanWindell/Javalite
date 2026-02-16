@@ -1,25 +1,23 @@
 package logger.repository;
 
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class LogConfig {
 
-    // Letting user decide path and file name
-    private String logFilePath = "";
-    private String logFileName = "";
+    private static String dbURL;
 
-    public String getLogFilePath() {
-        return logFilePath;
+    public static void loadConfig() {
+        Dotenv dotenv = Dotenv.configure()
+                .ignoreIfMissing()
+                .load();
+
+        dbURL = dotenv.get("DATABASE_URL", "jdbc:sqlite:default_logger.db");
     }
 
-    public String getLogFileName() {
-        return logFileName;
-    }
-
-    public void setLogFilePath(String logFilePath) {
-        this.logFilePath = logFilePath;
-    }
-
-    public void setLogFileName(String logFileName) {
-        this.logFileName = logFileName;
+    public static String getDbURL() {
+        if (dbURL == null) {
+            loadConfig(); // Auto-load
+        }
+        return dbURL;
     }
 }

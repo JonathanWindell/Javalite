@@ -1,9 +1,9 @@
 ```mermaid
     classDiagram
-    %% Användaren ser bara ILogger/Logger
+    %% User only needs ILogger/Logger
     User --> ILogger : Uses
 
-    %% Logger styr de andra delarna
+    %% Logger decides the rest
     Logger ..|> ILogger : Implements
     Logger --> LogEntry : Creates
     Logger --> LogValidation : Asks for check

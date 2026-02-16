@@ -7,14 +7,6 @@ import jakarta.validation.Validation;
 import jakarta.validation.ValidatorFactory;
 import jakarta.validation.*;
 
-/**
- * This file will contain Bean validation
- * Bean resources: 
- * https://www.baeldung.com/java-validation 
- * https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html
- */
-
-
 public class LogValidation {
     private final Validator validator;
 
