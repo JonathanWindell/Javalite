@@ -15,4 +15,3 @@ mvn test "-Djacoco.skip=true"
 mvn fmt:format
 
 // Check code
-mvn fmt:check

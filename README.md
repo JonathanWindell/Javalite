@@ -10,7 +10,14 @@
 
 This project was created as an easier way to handle all logs that usually gets lost or gets ignored but which might hold value further on during later development cycles. 
 
+    - **Easy viewing of logs** Using SQLite it's easy to view the logs that are saved
+    - **BDD Architecture** Built from the ground up using Behavior Driven Development with Gherkin & JUnit tests to support database connection. 
+
 # Overview
+
+I created this project as a way to contain the logs that I want to save from my projects but is unable to due to an easy and smart way of doing so. 
+
+This logger contains the essention building blocks such as entites, database & validation. 
 
 # Author
 
