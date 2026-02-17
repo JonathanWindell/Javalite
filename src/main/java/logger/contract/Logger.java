@@ -1,57 +1,55 @@
 package logger.contract;
 
+import java.time.LocalDateTime;
 import logger.logic.LogEntry;
 import logger.logic.LogValidation;
 import logger.repository.LogRepository;
 
-import java.time.LocalDateTime;
-
-
 public class Logger implements ILogger {
-    
-    private LogRepository repository;
-    private LogValidation validator;
 
-    public Logger() {
-        this.repository = new LogRepository();
-        this.validator = new LogValidation();
-    }
+  private LogRepository repository;
+  private LogValidation validator;
 
-    private void processLog(String message, String level) {
-        LocalDateTime timeStamp = LocalDateTime.now();
-        LogEntry entry = new LogEntry(timeStamp, message, level);
+  public Logger() {
+    this.repository = new LogRepository();
+    this.validator = new LogValidation();
+  }
 
-        if (validator.isValid(entry)) {
-            repository.insertData(entry);
-        } else {
-            System.err.println("Log was not validated: " + message);
-        }
-    }
-    
-    @Override
-    public void debug(String message, Object...args) {
-        processLog(String.format(message, args), "DEBUG");
-    }
+  private void processLog(String message, String level) {
+    LocalDateTime timeStamp = LocalDateTime.now();
+    LogEntry entry = new LogEntry(timeStamp, message, level);
 
-    @Override
-    public void info(String message, Object...args) {
-        processLog(String.format(message, args), "INFO");
+    if (validator.isValid(entry)) {
+      repository.insertData(entry);
+    } else {
+      System.err.println("Log was not validated: " + message);
     }
+  }
 
-    @Override
-    public void warning(String message) {
-        processLog(message, "WARNING");
-    }
+  @Override
+  public void debug(String message, Object... args) {
+    processLog(String.format(message, args), "DEBUG");
+  }
 
-    @Override
-    public void error(String message, Throwable throwable) {
-        String fullMessage = message + " | Error: " + throwable.getMessage();
-        processLog(fullMessage, "ERROR");
-    }
+  @Override
+  public void info(String message, Object... args) {
+    processLog(String.format(message, args), "INFO");
+  }
 
-    @Override
-    public void critical(String message, Throwable throwable) {
-        String fullMessage = message + " | Critical: " + throwable.getMessage();
-        processLog(fullMessage, "CRITICAL");
-    }
+  @Override
+  public void warning(String message) {
+    processLog(message, "WARNING");
+  }
+
+  @Override
+  public void error(String message, Throwable throwable) {
+    String fullMessage = message + " | Error: " + throwable.getMessage();
+    processLog(fullMessage, "ERROR");
+  }
+
+  @Override
+  public void critical(String message, Throwable throwable) {
+    String fullMessage = message + " | Critical: " + throwable.getMessage();
+    processLog(fullMessage, "CRITICAL");
+  }
 }

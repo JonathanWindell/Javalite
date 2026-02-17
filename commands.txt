@@ -1,10 +1,15 @@
-Maven commands
+// Maven commands
 
+// Reads pom.xml file a
 mvn clean compile
 
 mvn run
 
+// Run tests
 mvn test
 
 // Run tests without JaCoCo 
 mvn test "-Djacoco.skip=true"
+
+// Format code
+mvn fmt:format
