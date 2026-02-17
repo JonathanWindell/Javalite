@@ -1,0 +1,40 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_test:
+    name: Build & Test (Java ${{ matrix.version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ["23", "24"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK ${{ matrix.version }}
+      uses: actions/setup-java@v4
+      with:
+        java-version: ${{ matrix.version }} # Här använder vi matrisen korrekt!
+        distribution: 'temurin'
+        cache: maven
+
+    # VIKTIGT: Eftersom din LogConfig läser .env, måste vi skapa en tillfällig sådan för testerna
+    - name: Create dummy .env for CI
+      run: echo "DATABASE_URL=jdbc:sqlite:test.db" > .env
+
+    - name: Build and Run Tests
+      run: mvn -B clean verify # verify kör även coverage-plugins om de finns i din pom.xml
+
+  formatting: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: axel-op/googlejavaformat-action@v4
+        with:
+          args: "--set-exit-if-changed"
