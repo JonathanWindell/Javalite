@@ -5,3 +5,6 @@ mvn clean compile
 mvn run
 
 mvn test
+
+// Run tests without JaCoCo 
+mvn test "-Djacoco.skip=true"
