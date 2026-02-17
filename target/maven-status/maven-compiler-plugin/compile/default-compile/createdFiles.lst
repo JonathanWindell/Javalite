@@ -2,7 +2,6 @@ logger\contract\ILogger.class
 logger\database\Database.class
 logger\Main.class
 logger\logic\LogValidation.class
-logger\contract\ILogger$ConsoleLogger.class
 logger\repository\LogRepository.class
 logger\contract\Logger.class
 logger\logic\LogEntry.class

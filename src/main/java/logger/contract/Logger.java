@@ -27,7 +27,7 @@ public class Logger implements ILogger {
             System.err.println("Log was not validated: " + message);
         }
     }
-
+    
     @Override
     public void debug(String message, Object...args) {
         processLog(String.format(message, args), "DEBUG");
