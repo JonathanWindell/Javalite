@@ -13,3 +13,6 @@ mvn test "-Djacoco.skip=true"
 
 // Format code
 mvn fmt:format
+
+// Check code
+mvn fmt:check
