@@ -3,36 +3,18 @@ package logger.contract;
 
 public interface ILogger {
 
-    // 
-    void log(String message);
+    // Methods for deciding level of logger to store. 
+    void info(String message);
+    void warning(String message);
+    void debug(String message);
+    void error(String message);
+    void critical(String message);
 
-    /*
-     */
-    public class ConsoleLogger implements ILogger {
+    // Throwable, log crashes
+    void error(String message, Throwable throwable);
+    void critical(String message, Throwable throwable);
 
-        @Override
-        public void log(String message) {
-            System.out.println(message);
-        }
-    }
-
-    // user has to enter databaseURl
-
-    /**
-     * Enum for standard log types
-     */
-    // public enum LogType {
-        //ERROR, INFO, WARNING, DEBUG
-    // }
-
-    /**
-     * private Logger.LogType minimumLogLevel = Logger.LogType.INFO;
-     * 
-     * public void setMinimumLogLevel(Logger.LogType minimumLogLevel) {
-        this.minimumLogLevel = minimumLogLevel;
-    }
-
-     */
-
-
+    // Objects
+    void info(String message, Object...args);
+    void debug(String message, Object...args);
 }
