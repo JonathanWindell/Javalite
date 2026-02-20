@@ -14,4 +14,7 @@ public interface ILogger {
   void info(String message, Object... args);
 
   void debug(String message, Object... args);
+
+  // Method for clearing logs
+  void clearAllLogs();
 }

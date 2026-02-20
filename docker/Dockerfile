@@ -15,7 +15,7 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 # Copy only finished JAR-file. 
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/*-jar-with-dependencies.jar app.jar
 
 # Create map for database.
 RUN mkdir -p /app/data

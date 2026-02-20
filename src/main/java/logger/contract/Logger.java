@@ -26,6 +26,10 @@ public class Logger implements ILogger {
     }
   }
 
+  public void clearAllLogs() {
+    repository.truncateTable();
+  }
+
   @Override
   public void debug(String message, Object... args) {
     processLog(String.format(message, args), "DEBUG");
