@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  logger-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: java_logger_app
+    volumes:
+      - ./data:/app/data # save .db file on computer
+    environment:
+      # Decide where database will end up. 
+      - DATABASE_URL=jdbc:sqlite:/app/data/logs.db
+    restart: always

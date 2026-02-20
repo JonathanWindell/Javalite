@@ -1,13 +1,24 @@
-FROM openjdk:8-jdk-alpine
+# Build (Uses JDK 21 & Maven)
+FROM eclipse-temurin:21-jdk AS build
+WORKDIR /app
 
-WORKDIR /Step4LoggerTesting
+# Copy project files
+COPY pom.xml .
+COPY src ./src
 
-COPY . .
+# Build JAR-file (Assume that tests have already passed)
+RUN apt-get update && apt-get install -y maven
+RUN mvn clean package -DskipTests
 
-RUN javac -d . *.java
+# Steg 2: Compiling phase (Using slim JRE 21)
+FROM eclipse-temurin:21-jre
+WORKDIR /app
 
-CMD ["java", "Main"]
+# Copy only finished JAR-file. 
+COPY --from=build /app/target/*.jar app.jar
 
-EXPOSE 8080
+# Create map for database.
+RUN mkdir -p /app/data
 
-# docker build -t step4loggertesting .
+# Start application. 
+ENTRYPOINT ["java", "-jar", "app.jar"]
