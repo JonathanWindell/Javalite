@@ -8,6 +8,9 @@ mvn run
 // Run tests
 mvn test
 
+// Clean before testing
+mvn clean test
+
 // Run tests without JaCoCo 
 mvn test "-Djacoco.skip=true"
 
@@ -16,3 +19,10 @@ mvn fmt:format
 
 // Check code
 mvn fmt:check
+
+// Docker commands
+// Start and build docker-compose
+docker-compose -f docker/docker-compose.yml up --build
+
+// Remove docker-compose
+docker-compose -f docker/docker-compose.yml down

@@ -9,8 +9,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./data:/app/data # save .db file on computer
-      - ../.env:/app/.env # Read .env file
+      - ./data:/app/data # save .db file on computer. File path starts in docker folder!
+      - ../.env:/app/.env # Read .env file. Needs to see ADMINKEY. 
     environment:
       # Decide where database will end up. 
       - DATABASE_URL=jdbc:sqlite:/app/data/logs.db

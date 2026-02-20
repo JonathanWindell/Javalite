@@ -27,7 +27,7 @@ public class LogRepositoryStep {
     logRepository.setUseFakeDatabase(false);
 
     // Using dedicated test file instead of my.db
-    String testUrl = "jdbc:sqlite:test_logger.db";
+    String testUrl = "jdbc:sqlite:docker/data/test_logger.db";
     logRepository.setCorrectUrl(testUrl);
 
     try {
