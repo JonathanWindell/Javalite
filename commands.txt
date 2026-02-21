@@ -1,28 +1,59 @@
-// Maven commands
-
-// Reads pom.xml file a
+1. MAVEN BUILD & EXECUTION
+# Clean previous builds and compile the source code
 mvn clean compile
 
-mvn run
+# Package the application into a "Fat JAR" (includes all dependencies)
+mvn clean package
 
-// Run tests
+# Run the application locally without Docker
+# Note: Requires exec-maven-plugin configuration in pom.xml
+mvn exec:java -Dexec.mainClass="logger.Main"
+
+# Alternative: Run the compiled JAR file directly
+java -jar target/Logger-app-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+
+
+2. TESTING & CODE QUALITY
+# Run all tests (JUnit unit tests & Cucumber BDD features)
 mvn test
 
-// Clean before testing
+# Clean project and run tests (Recommended for fresh testing)
 mvn clean test
 
-// Run tests without JaCoCo 
+# Run tests while skipping JaCoCo coverage reports
 mvn test "-Djacoco.skip=true"
 
-// Format code
+# Automatically format the code according to Google Java Format
 mvn fmt:format
 
-// Check code
+# Verify if the code follows formatting rules (Fails if not formatted)
 mvn fmt:check
 
-// Docker commands
-// Start and build docker-compose
+
+3. DOCKER MANAGEMENT 
+# Build the image and start the container
 docker-compose -f docker/docker-compose.yml up --build
 
-// Remove docker-compose
+# Start the container in the background (detached mode)
+docker-compose -f docker/docker-compose.yml up -d
+
+# Stop the container and remove networks/volumes
 docker-compose -f docker/docker-compose.yml down
+
+# Follow the live logs of the running container
+docker logs -f java_logger_app
+
+
+4. API TESTING (REST ENDPOINTS)
+# POST: Send a new log message (PowerShell)
+Invoke-RestMethod -Uri http://localhost:8080/log -Method Post -ContentType "application/json" -Body '{"message": "Test message", "level": "INFO"}'
+
+# DELETE: Clear all logs from the database (PowerShell)
+# Replace <YOUR_KEY> with the value from your .env file
+$headers = @{"X-API-Key" = "<YOUR_ADMIN_KEY>"}
+Invoke-RestMethod -Uri http://localhost:8080/deletelogs -Method Delete -Headers $headers
+
+# POST: Send a new log message (Bash/Linux/macOS)
+curl -X POST http://localhost:8080/log \
+     -H "Content-Type: application/json" \
+     -d '{"message": "Test message", "level": "INFO"}'

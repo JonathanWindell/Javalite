@@ -97,50 +97,31 @@ ILogger logger = new Logger();
 logger.info("Internal system message");
 ```
 
-### 1: Starting the Docker Container
+### 3: Viewing the Logs
+If running via Docker, your database file is persisted on your host machine at `./docker/data/logs.db`.
 
-Start & build the docker container using `docker-compose -f docker/docker-compose.yml up --build` <br>
-To find more commands look in the `commands.txt` file
+**Recommended Tools:**
+- **VSCode Extension:** [SQLite Viewer](https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer) (Quickest way to inspect tables)
+- **DB Browser for SQLite:** [DB Browser](https://sqlitebrowser.org/) (Professional standalone viewer)
 
-**Endpoints** 
+# BDD & Testing
+Use Cucumber to ensure the logger behaves exactly as described in our feature files. 
 
-**Note:** Endpoints do not show anything in browser by design.
-
-- Add log: `http://localhost:8080/log` <br>
-```json
-// POST /log
-{
-  "message": "Application started",
-  "level": "INFO"
-}
+**Sample Feature:**
+```Gherkin
+Scenario: Successfully log an info message
+  Given the logger is initialized
+  When I send a POST request to "/log" with message "Test" and level "INFO"
+  Then the database should contain 1 entry
 ```
-- Delete logs: `http://localhost:8080/deletelogs` <br>
-**Note:** Delete requires `X-API-Key: <Your_Admin_Key>`
 
-
-### 2: How to Create own Log Messages
-Using the provided methods by ILogger you can easily create messages and decide log level. 
-
-You can test logging out through powershell: <br>
-`Invoke-RestMethod -Uri http://localhost:8080/log -Method Post -ContentType "application/json" -Body '{"message": "<Enter your message>", "level": "<Decide level>"}'`
-
-- `logger.[Level](req.getMessage());`
-
-### 3: How to View Logs in Database
-The easiest way to watch logs is by downloading. 
-
-**VSCode Extensions** 
-- SQLite Viewer - Florian Klampfer: [Link](https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer) 
-
-This turns any .db file built with SQLite to an easy to read table. 
-
+To run tests locally: `mvn clean test`
 
 # Installation Instructions
 
 ### Prerequisites
-- **Docker Desktop** 
-- **Java Version 21**
-- **Javac Version 21**
+- **Docker Desktop** (Recommended for easy setup)
+- **Java Version 21** (Required for local development)
 
 ### Docker Compose
 
@@ -148,15 +129,14 @@ This turns any .db file built with SQLite to an easy to read table.
 Create a `.env` file in the root directory. You can copy the structure below: 
 
 ```ini
-# Set url to your database. This is only if you use mvn run without docker. 
-# Otherwise use docker-compose.yml to decide file path for database. 
+# Database URL (Used for local 'mvn run' only)
 DATABASE_URL=jdbc:sqlite:C:/[Path]/[To]/[Your]/[Database]/logs.db
 
-# Key is used to access deletelogs endpoint. 
+# API Key for administrative action.
 ADMINKEY=MYPRIVATEADMINKEY
 ```
 
-Don't forget to create `.gitignore` file and add .env! This ensures that you never push anything private to github. 
+**Security:** Don't forget to create `.gitignore` file and add .env! This ensures that you never push anything private to github. 
 
 # Contributions
 Contributions are welcome! Since this project follows **BDD (Behavior Driven Development)**, please ensure you include tests for any new features.
