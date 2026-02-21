@@ -17,7 +17,7 @@ This project was created as an easier way to handle all logs that usually gets l
 
 I created this project as a way to contain the logs that I want to save from my projects but is unable to due to an easy and smart way of doing so. 
 
-This logger contains the essention building blocks such as entites, database & validation. 
+This logger contains the essential building blocks such as entites, database & validation. 
 
 **Architecture**
 - Show picture of abstract diagram. 
