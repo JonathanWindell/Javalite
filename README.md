@@ -27,7 +27,6 @@ By utilizing **Javalin** for the web layer and **SQLite** for persistence, the p
 - **Validation:** Integrated logic to ensure data integrity before storage.
 - **Database Orchestration:** Automated table management and connection handling.
 
-
 Whether you use it as a standalone logging microservice or as a starting point for your own Java backend, this shell is designed to be easily extended and modified.
 
 # Architecture
