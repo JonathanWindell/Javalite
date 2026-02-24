@@ -8,6 +8,7 @@
     Logger --> LogEntry : Creates
     Logger --> LogValidation : Asks for check
     Logger --> LogRepository : Commands to save
+    LogRequest --> Main
 
     %% Business logic
     LogRepository --> Database : Persists
