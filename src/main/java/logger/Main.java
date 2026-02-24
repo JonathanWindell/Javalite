@@ -1,7 +1,7 @@
 package logger;
 
 import io.javalin.*;
-import logger.api.APIEndpoints;
+import logger.api.LogController;
 import logger.contract.*;
 import logger.repository.LogConfig;
 
@@ -15,7 +15,7 @@ public class Main {
     var app = Javalin.create().start(8080);
 
     // 3. Register API routes
-    new APIEndpoints(logger).registerRoutes(app);
+    new LogController(logger).registerRoutes(app);
 
     System.out.println("Logger Service is running...");
   }

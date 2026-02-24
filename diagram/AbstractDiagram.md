@@ -1,36 +1,58 @@
 ```mermaid
     classDiagram
-    %% User only needs ILogger/Logger
-    User --> ILogger : Uses
-
-    %% Logger decides the rest
+    %% Entry Point
+    Main --> LogController : Initializes & Starts
+    
+    %% API Layer
+    LogController --> ILogger : Calls methods
+    LogController ..> LogRequest : Maps JSON to
+    
+    %% Contract Layer
     Logger ..|> ILogger : Implements
+    
+    %% Business/Logic Layer
     Logger --> LogEntry : Creates
-    Logger --> LogValidation : Asks for check
-    Logger --> LogRepository : Commands to save
-    LogRequest --> Main
+    Logger --> LogValidation : Validates
+    Logger --> LogRepository : Persists
+    
+    LogRepository --> LogConfig : Reads settings
+    LogRepository --> Database : Executes SQL
 
-    %% Business logic
-    LogRepository --> Database : Persists
-    LogRepository --> LogConfig : Reads path
+    namespace APILayer {
+        class LogController { 
+            +registerRoutes(app)
+            +postLog(ctx)
+            +deleteLogs(ctx)
+        }
+        class LogRequest {
+            +String message
+            +String level
+        }
+    }
 
-    namespace InterfaceLayer {
+    namespace ContractLayer {
         class ILogger { <<interface>> }
-        class Logger { +log(String msg) }
+        class Logger { 
+            +info(String msg)
+            +clearLogs()
+        }
     }
 
     namespace BusinessLayer {
         class LogValidation { +isValid(LogEntry) }
         class LogRepository { +save(LogEntry) }
-        class LogConfig { path : String }
+        class LogConfig { +getDbURL() }
     }
 
     namespace EntityLayer {
-        class LogEntry { data fields }
+        class LogEntry { 
+            +String message
+            +Timestamp time
+        }
     }
 
     namespace DatabaseLayer {
-        class Database { SQLite }
+        class Database { <<SQLite>> }
     }
 
 ```

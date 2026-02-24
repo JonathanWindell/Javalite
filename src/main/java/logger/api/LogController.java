@@ -5,10 +5,10 @@ import logger.contract.ILogger;
 import logger.logic.LogRequest;
 import logger.repository.LogConfig;
 
-public class APIEndpoints {
+public class LogController {
   private final ILogger logger;
 
-  public APIEndpoints(ILogger logger) {
+  public LogController(ILogger logger) {
     this.logger = logger;
   }
 
