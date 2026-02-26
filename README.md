@@ -1,4 +1,4 @@
-# API Shell
+# Java Logger
 
 [![Java 21](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white)](#)
 [![Maven](https://img.shields.io/badge/Maven-C71A36?logo=apache-maven&logoColor=white)](#)
