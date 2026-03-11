@@ -1,4 +1,4 @@
-# Java Logger
+# Javalite
 
 [![Java 21](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white)](#)
 [![Maven](https://img.shields.io/badge/Maven-C71A36?logo=apache-maven&logoColor=white)](#)
@@ -96,7 +96,7 @@ I'm Jonathan and I develop projects in my sparetime that help myself and others 
 ```
 
 # Quick Start
-- 1: Clone the project: `git clone https://github.com/JonathanWindell/JavaLogger.git`
+- 1: Clone the project: `git clone https://github.com/JonathanWindell/Javalite.git`
 - 2: Create `.env` file with `ADMINKEY` 
 - 3: Run `docker-compose -f docker/docker-compose.yml up --build`.
 
