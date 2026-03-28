@@ -11,5 +11,5 @@ import org.junit.platform.suite.api.Suite;
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "logger.steps")
 public class RunCucumberTest {
-  // Denna klass ska vara tom, den fungerar bara som en startknapp
+  // Instantiatie
 }
